@@ -1,26 +1,23 @@
 merge_queue:
   max_parallel_checks: 3
-
 queue_rules:
   - name: default
     merge_method: squash
     commit_message_template: |
-        {{title}} (#{{number}})
+      {{title}} (#{{number}})
 
-        {{body}}
-
+      {{body}}
+    branch_protection_injection_mode: queue
 pull_request_rules:
   - name: Automatically merge pull requests
     conditions:
       - base=main
       - label=merge
-      # If a review is requested, it must be given before a merge.
-      - ! '#changes-requested-reviews-by=0'
-      - ! "#review-requested=0"
+      - "#changes-requested-reviews-by=0"
+      - "#review-requested=0"
     actions:
       queue:
         name: default
-
   - name: Delete head branch after merge
     actions:
       delete_head_branch: {}
