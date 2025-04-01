@@ -4,4 +4,4 @@ jobs:
   stall:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 0.5m
+      - run: sleep 1m
