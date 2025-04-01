@@ -1,0 +1,7 @@
+on: [push]
+
+jobs: 
+  stall:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 1m
