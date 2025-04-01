@@ -14,7 +14,7 @@ queue_rules:
 pull_request_rules:
   - name: Automatically merge pull requests
     conditions:
-      - base=master
+      - base=main
       - status-success=buildkite/circuithub
       - label=merge
       # If a review is requested, it must be given before a merge.
