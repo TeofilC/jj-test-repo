@@ -2,6 +2,8 @@ merge_queue:
   max_parallel_checks: 3
 queue_rules:
   - name: default
+    conditions:
+      - status-success=stall
     merge_method: squash
     commit_message_template: |
       {{title}} (#{{number}})
